@@ -5,14 +5,7 @@ Download XAMPP from https://www.apachefriends.org/download.html, run Apache and 
 
 
 	Database:
-Open http://localhost/phpmyadmin/ and execute the following SQL script:
-
-	CREATE DATABASE weatherStation;
-
-	CREATE USER 'fostinis'@'%' IDENTIFIED VIA mysql_native_password USING '***';
-	GRANT ALL PRIVILEGES ON *.* TO 'fostinis'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
-
-	CREATE TABLE `weatherStation`.`weatherData` (`count` INT(255) NOT NULL AUTO_INCREMENT, `temperature` FLOAT(5) NOT NULL , `airHumidity` FLOAT(5) NOT NULL , `groundHumidity` FLOAT(5) NOT NULL , `airIntensity` FLOAT(5) NOT NULL,`dateTime` DATETIME NOT NULL, PRIMARY KEY(count)) ENGINE = InnoDB;
+Open http://localhost/phpmyadmin/ and execute the SQL script found in sql.txt
 	
 	
 	RPi Code:
