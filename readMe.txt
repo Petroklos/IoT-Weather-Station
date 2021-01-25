@@ -1,5 +1,7 @@
+RPi Data-Manager, with Arduino Data-Collector and SQL on Windows Data-Storage 
+
 	Server:
-Download XAMPP from https://www.apachefriends.org/download.html, run Apache and MySQL
+Download XAMPP from https://www.apachefriends.org/download.html, run Apache and MySQL.
 
 
 	Database:
@@ -14,7 +16,7 @@ Open http://localhost/phpmyadmin/ and execute the following SQL script:
 	
 	
 	RPi Code:
-sudo apt-get python
+sudo apt-get install python
 
 Run the code found in rpiGet.py, it might need some more "sudo apt-get install"s for some libraries.
 
@@ -22,7 +24,7 @@ Its eMail function needs a real eMail for the sender. It reads its login data fr
 
 
 	Arduino Code:
-sudo apt-get arduino-cli
+sudo apt-get install arduino-cli
 
 There's three code variants, one that generates random values, one that gets analog data from the analog pins and the hybrid which gets analog data for "temperature" and random data for the rest.
 Based on what script you want, run the corresponding code and download the corresponding file in the corresponding sketch folder.
