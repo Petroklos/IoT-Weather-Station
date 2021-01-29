@@ -20,7 +20,7 @@ z = 0
 try:
         mydb = mysql.connector.connect(
         host = "192.168.1.8",
-        user = "fostinis",
+        user = "grafana",
         database = "weatherstation",
         port = "3306"
         )
