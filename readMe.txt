@@ -5,7 +5,7 @@ Download XAMPP from https://www.apachefriends.org/download.html, run Apache and 
 
 
 	Database:
-Open http://localhost/phpmyadmin/ and execute the SQL script found in sql.txt
+Open http://localhost/phpmyadmin/ and execute the SQL script found in databaseCode.sql
 	
 	
 	RPi Code:
