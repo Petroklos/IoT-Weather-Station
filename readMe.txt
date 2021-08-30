@@ -13,7 +13,7 @@ sudo apt-get install python
 
 Run the code found in rpiGet.py, it might need some more "sudo apt-get install"s for some libraries.
 
-Its eMail function needs a real eMail for the sender. It reads its login data from a file "login.txt", not included here.
+Its eMail function needs a real eMail for the sender. It reads its login data from the file "login.txt".
 
 
 	Arduino Code:
