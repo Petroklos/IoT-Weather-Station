@@ -19,10 +19,10 @@ z = 0
 #open connection to database
 try:
         mydb = mysql.connector.connect(
-        host = "192.168.1.8",
-        user = "grafana",
-        database = "weatherstation",
-        port = "3306"
+                host = "192.168.1.8",
+                user = "grafana",
+                database = "weatherstation",
+                port = "3306"
         )
         print "Database Connection Successful"
 except:
