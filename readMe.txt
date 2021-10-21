@@ -22,17 +22,9 @@ sudo apt-get install arduino-cli
 There's three code variants, one that generates random values, one that gets analog data from the analog pins and the hybrid which gets analog data for "temperature" and random data for the rest.
 Based on what script you want, run the corresponding code and download the corresponding file in the corresponding sketch folder.
 
-arduino-cli sketch new dataCollectorRandom
-arduino-cli compile ./dataCollectorRandom/ --fqbn arduino:avr:uno
-arduino-cli upload ./dataCollectorRandom/ --fqbn arduino:avr:uno -p /dev/ttyACM0
-
-arduino-cli sketch new dataCollectorAnalog
-arduino-cli compile ./dataCollectorAnalog/ --fqbn arduino:avr:uno
-arduino-cli upload ./dataCollectorAnalog/ --fqbn arduino:avr:uno -p /dev/
-
-arduino-cli sketch new dataCollectorHybrid
-arduino-cli compile ./dataCollectorHybrid/ --fqbn arduino:avr:uno
-arduino-cli upload ./dataCollectorHybrid/ --fqbn arduino:avr:uno -p /dev/
+arduino-cli sketch new dataCollectorX
+arduino-cli compile ./dataCollectorX/ --fqbn arduino:avr:uno
+arduino-cli upload ./dataCollectorX/ --fqbn arduino:avr:uno -p /dev/ttyACM0
 
 	Grafana:
 Install Grafana for your System, open localhost:3000 on your browser.
