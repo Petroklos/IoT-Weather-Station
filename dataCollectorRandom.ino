@@ -1,7 +1,7 @@
-// Generates Random Values
+// This code is generating random values for each sensor reading, so the simulated sensor readings will fluctuate randomly over time.
 
 float temperature, airHumidity, groundHumidity, windIntensity;
-int r;
+int randomValue;
 
 void setup() {
         Serial.begin(9600);
@@ -13,21 +13,19 @@ void setup() {
 }
 
 void loop() {
-        r = random(-10,10);
-        temperature += temperature*r/100;
+        randomValue = random(-10,10);
+        temperature += temperature * randomValue/100;
 
         r = random(-10,10);
-        airHumidity += airHumidity*r/100;
+        airHumidity += airHumidity * randomValue/100;
 
         r = random(-10,10);
-        groundHumidity += groundHumidity*r/100;
+        groundHumidity += groundHumidity * randomValue/100;
 
         r = random(-10,10);
-        windIntensity += windIntensity*r/100;
-        if (windIntensity < 0)
-                windIntensity = 0;
+        windIntensity += windIntensity * randomValue/100;
+        if (windIntensity < 0) windIntensity = 0;
 
-        // It's worth noting that this code is generating random values for each sensor reading, so the simulated sensor readings will fluctuate randomly over time.
         String toPrint = String(temperature) + ' ' + String(airHumidity) + ' ' + String(groundHumidity) + ' ' + String(windIntensity);
         Serial.println(toPrint);
 
