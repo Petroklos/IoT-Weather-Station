@@ -9,7 +9,7 @@ CREATE TABLE `weatherStation`.`weatherData` (
   `temperature` FLOAT(5) NOT NULL ,
   `airHumidity` FLOAT(5) NOT NULL ,
   `groundHumidity` FLOAT(5) NOT NULL ,
-  `airIntensity` FLOAT(5) NOT NULL,
+  `windIntensity` FLOAT(5) NOT NULL,
   `dateTime` DATETIME NOT NULL,
   PRIMARY KEY(count)
 ) ENGINE = InnoDB;
