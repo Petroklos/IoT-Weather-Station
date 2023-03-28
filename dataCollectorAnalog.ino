@@ -1,32 +1,32 @@
-//analog input value generator
+// Reads Analog Input Values
 
 float analogPin0 = A0, analogPin1 = A1, analogPin2 = A2, analogPin3 = A3;
-float val, temp, airHum, groundHum, airInt;
+float temperature, airHumidity, groundHumidity, windIntensity, tempValue;
 
 void setup() {
         Serial.begin(9600);
-        temp = analogRead(analogPin0);
-        airHum = 40.0;
-        groundHum = 50.0;
-        airInt = 10.0;
+        temperature = analogRead(analogPin0);
+        airHumidity = 40.0;
+        groundHumidity = 50.0;
+        windIntensity = 10.0;
 }
 
 void loop() {
-        val = (analogRead(analogPin0)-511)/50;
-        temp = temp + temp*val/100;
+        tempValue = (analogRead(analogPin0)-511)/50;
+        temperature = temperature + temperature*tempValue/100;
 
-        val = (analogRead(analogPin1)-511)/50;
-        airHum = airHum + airHum*val/100;
+        tempValue = (analogRead(analogPin1)-511)/50;
+        airHumidity = airHumidity + airHumidity*tempValue/100;
 
-        val = (analogRead(analogPin2)-511)/50;
-        groundHum = groundHum + groundHum*val/100;
+        tempValue = (analogRead(analogPin2)-511)/50;
+        groundHumidity = groundHumidity + groundHumidity*tempValue/100;
 
-        val = (analogRead(analogPin3)-511)/50;
-        airInt = airInt + airInt*val/100;
-        if (airInt < 0)
-                airInt = 0;
+        tempValue = (analogRead(analogPin3)-511)/50;
+        windIntensity = windIntensity + windIntensity*tempValue/100;
+        if (windIntensity < 0)
+                windIntensity = 0;
 
-        String toPrint = String(temp) + ' ' + String(airHum) + ' ' + String(groundHum) + ' ' + String(airInt);
+        String toPrint = String(temperature) + ' ' + String(airHumidity) + ' ' + String(groundHumidity) + ' ' + String(windIntensity);
         Serial.println(toPrint);
 
         delay(3000);
