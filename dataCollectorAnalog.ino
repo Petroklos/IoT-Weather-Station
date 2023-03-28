@@ -1,4 +1,4 @@
-// Reads Analog Input Values
+// This code is measuring values from sensors, so the sensor readings will reflect the real-world conditions.
 
 float analogPin0 = A0, analogPin1 = A1, analogPin2 = A2, analogPin3 = A3;
 float temperature, airHumidity, groundHumidity, windIntensity, tempValue;
