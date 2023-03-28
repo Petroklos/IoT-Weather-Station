@@ -31,5 +31,5 @@ void loop() {
         String toPrint = String(temperature) + ' ' + String(airHumidity) + ' ' + String(groundHumidity) + ' ' + String(windIntensity);
         Serial.println(toPrint);
 
-        delay(3000)
+        delay(3000);
 }
