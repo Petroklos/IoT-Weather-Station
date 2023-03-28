@@ -1,14 +1,14 @@
-**RPi Data-Manager, with Arduino Data-Collector and SQL on Windows Data-Storage**
+# RPi Data-Manager, with Arduino Data-Collector and SQL on Windows Data-Storage
 
-	Server:
+## Server:
 Download XAMPP from https://www.apachefriends.org/download.html, run Apache and MySQL.
 
 
-	Database:
+## Database:
 Open http://localhost/phpmyadmin/ and execute the SQL script found in databaseCode.sql
 	
 	
-	RPi Code:
+## RPi Code:
 sudo apt-get install python
 
 Run the code found in rpiGet.py, it might need some more "sudo apt-get install"s for some libraries.
@@ -16,7 +16,7 @@ Run the code found in rpiGet.py, it might need some more "sudo apt-get install"s
 Its eMail function needs a real eMail for the sender. It reads its login data from the file "login.txt".
 
 
-	Arduino Code:
+## Arduino Code:
 sudo apt-get install arduino-cli
 
 There's three code variants, one that generates random values, one that gets analog data from the analog pins and the hybrid which gets analog data for "temperature" and random data for the rest.
@@ -26,7 +26,7 @@ arduino-cli sketch new dataCollectorX
 arduino-cli compile ./dataCollectorX/ --fqbn arduino:avr:uno
 arduino-cli upload ./dataCollectorX/ --fqbn arduino:avr:uno -p /dev/ttyACM0
 
-	Grafana:
+## Grafana:
 Install Grafana for your System, open localhost:3000 on your browser.
 
 Data Sources -> Add data source -> MySQL
