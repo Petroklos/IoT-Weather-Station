@@ -1,6 +1,7 @@
 // Reads Analog Temperature value and Randomly Generates all other values
 
-float analogPin0 = A0, value, temperature, airHumidity, groundHumidity, windIntensity;
+float analogPin0 = A0
+float temperature, airHumidity, groundHumidity, windIntensity, tempValue;
 int r;
 
 void setup() {
@@ -13,8 +14,8 @@ void setup() {
 }
 
 void loop() {
-    value = (analogRead(analogPin0) - 511) / 50;
-    temperature += temperature * value / 100;
+    tempValue = (analogRead(analogPin0) - 511) / 50;
+    temperature += temperature * tempValue / 100;
 
     r = random(-10, 10);
     airHumidity += airHumidity * r / 100;
