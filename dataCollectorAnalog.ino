@@ -13,19 +13,18 @@ void setup() {
 
 void loop() {
         tempValue = (analogRead(analogPin0)-511)/50;
-        temperature += temperature*tempValue/100;
+        temperature += temperature * tempValue/100;
 
         tempValue = (analogRead(analogPin1)-511)/50;
-        airHumidity += airHumidity*tempValue/100;
+        airHumidity += airHumidity * tempValue/100;
 
         tempValue = (analogRead(analogPin2)-511)/50;
-        groundHumidity += groundHumidity*tempValue/100;
+        groundHumidity += groundHumidity * tempValue/100;
 
         tempValue = (analogRead(analogPin3)-511)/50;
-        windIntensity += windIntensity*tempValue/100;
-        if (windIntensity < 0)
-                windIntensity = 0;
-
+        windIntensity += windIntensity * tempValue/100;
+        if (windIntensity < 0) windIntensity = 0;
+        
         String toPrint = String(temperature) + ' ' + String(airHumidity) + ' ' + String(groundHumidity) + ' ' + String(windIntensity);
         Serial.println(toPrint);
 
