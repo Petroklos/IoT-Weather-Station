@@ -6,20 +6,19 @@ import smtplib
 import ssl
 import datetime
 
+# initialize some values and serial read from Arduino
 weather = [[]]
 temp = []
-
-#initialize some values and serial read from Arduino
 ser = serial.Serial('/dev/ttyACM0', 9600)
 stuff = ser.readline()
 readTemp, readAirHum, readGroundHum, readAirIntense = stuff.split()
 temp.insert(0,[readTemp, readAirHum, readGroundHum, readAirIntense])
 z = 0
 
-#open connection to database
+# open connection to database
 try:
         mydb = mysql.connector.connect(
-                host = "192.168.1.8",
+                host = "XXX.XXX.XXX.XXX",
                 user = "grafana",
                 database = "weatherstation",
                 port = "3306"
@@ -29,7 +28,7 @@ except:
         print "Database Connection Failed"
 mycursor = mydb.cursor()
 
-#set up email sender and receivers, gets values from external .txt file
+# set up email sender and receivers, gets values from external .txt file
 def getLogin():
         user = passw = ""
         with open("login.txt", "r") as f:
@@ -42,7 +41,7 @@ email, password = getLogin()
 
 server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
 server.login(email, password)
-server.sendmail(email,"cs131104@uniwa.gr","Weather Node Initiated")
+server.sendmail(email,"email@email.com", "Weather Node Initiated")
 
 while True:
         #reads up to 10 values, can be interupted
@@ -62,12 +61,12 @@ while True:
                         temprNow = float(weather[i][0])
                         airHumNow = float(weather[i][1])
                         if temprNow >= temprOld*1.4 or airHumNow <= airHumOld*0.5:
-                                server.sendmail(email,"cs131104@uniwa.gr","Temperature or Humidity Instability")
+                                server.sendmail(email, "email@email.com", "Temperature or Humidity Instability")
                         z = 0
                 else:
                         z = z+1
 
-                #compares temperature with previous temperature value, if difference equal or higher to 10%, break for
+                # compares temperature with previous temperature value, if difference equal or higher to 10%, break for
                 if i == 0:
                         cur = float(weather[i][0])
                         pre = float(temp[0][0])
@@ -79,10 +78,10 @@ while True:
                         if cur >= pre*1.1 or cur <= pre*0.9:
                                 break
 
-        #writes as many values as the previous for-loop read, up to 10
+        # writes as many values as the previous for-loop read, up to 10
         for j in range(i+1):
-                sql = "INSERT INTO WEATHERDATA(temperature,airHumidity,groundHumidity,airIntensity,dateTime) VALUES (%s,%s,%s,%s,%s)"
-                val = (weather[j][0],weather[j][1],weather[j][2],weather[j][3],weather[j][4])
+                sql = "INSERT INTO WEATHERDATA(temperature,airHumidity,groundHumidity,windIntensity,dateTime) VALUES (%s,%s,%s,%s,%s)"
+                val = (weather[j][0], weather[j][1], weather[j][2], weather[j][3], weather[j][4])
                 mycursor.execute(sql,val)
         mydb.commit()
 
