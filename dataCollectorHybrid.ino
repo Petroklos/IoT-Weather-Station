@@ -1,4 +1,4 @@
-// Reads Analog Temperature value and Randomly Generates all other values
+// This code is measuring the analog temperature reading and generating random values for the air humidity, ground humidity, and wind intensity readings.
 
 float analogPin0 = A0
 float temperature, airHumidity, groundHumidity, windIntensity, tempValue;
@@ -29,10 +29,6 @@ void loop() {
         windIntensity = 0;
     }
 
-    // It's worth noting that airHum, groundHum and airInt values are randomly generated, while temp value is generated based on the analog sensor reading.
-    // The random value generated for each variable is a value between -10% and 10%, scaled by the current value of the variable. 
-    // This means that the simulated sensor readings will fluctuate randomly over time, but will generally trend upwards or downwards based on the initial value of the analog input pin.
-    
     String toPrint = String(temperature) + ' ' + String(airHumidity) + ' ' + String(groundHumidity) + ' ' + String(windIntensity);
     Serial.println(toPrint);
 
