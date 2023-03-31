@@ -56,4 +56,3 @@ arduino-cli upload ./dataCollectorX/ --fqbn arduino:avr:uno -p /dev/ttyACM0
 ## Endnotes
 
 This project has been tested on a Windows PC but should work on a Linux server as well, potentially even the data-aggregating Raspberry Pi for small enough installations.
-test
