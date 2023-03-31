@@ -37,7 +37,7 @@ Select: *your desired value*
 
 1. The Arduinos will be connected to the Raspberry Pis via Serial (e.g., USB).
 
-2. Depending on the current use case, download the desired file in the respective sketch folder and execute the code. There are three code variants for the Arduinos:
+2. Depending on the current use case, download the desired file in the respective sketch folder. There are three code variants for the Arduinos:
 
     * `dataCollectorAnalog.ino` reads analog data from the analog pins. This would be executed in real-world scenarios.
 
@@ -45,7 +45,7 @@ Select: *your desired value*
 
     * `dataCollectorHybrid.ino` reads analog data for some values and generates random data for the rest. This would be used in lab scenarios to verify the whole system but with limited access to sensors.
 
-3. Depending on the current use case, download the desired file in the respective sketch folder and execute the code. For example, if using Arduino UNO boards:
+3. Execute the aformentioned code. For example, if using Arduino UNO boards:
 ```
 sudo apt-get install arduino-cli
 arduino-cli sketch new dataCollectorX
